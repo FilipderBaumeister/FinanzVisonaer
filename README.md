@@ -16,12 +16,12 @@ namespace FinanzVisonaer
 {
     public partial class Form1 : Form
     {
-        private List<double> richTextBox3Values = new List<double>();
+        private List<double> richTextBox3Values = new List<double>();  //Speichern der Werte in einer Liste
 
         private bool IsNumeric(string text)
         {
             double num;
-            return double.TryParse(text, out num);
+            return double.TryParse(text, out num); //überprüfen ob es eine Zahl ist
         }
         
         public Form1()
@@ -129,10 +129,9 @@ namespace FinanzVisonaer
             else { richTextBox2.Visible = false; }      
         }
         /// <summary>
-        /// Es fehlt noch  eine Art graph 
-        /// und ich möchte das noch in einer
-        /// Datenbank speichern 
-        /// 
+        /// Excel als speicher Element bei tastdruck 
+        /// Graphen speichern möglich wäre ein Chart
+        /// ss
         /// </summary>
 
     }
