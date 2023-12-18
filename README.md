@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
+using Excel = Microsoft.Office.Interop.Excel;
+
 
 namespace FinanzVisonaer
 {
@@ -27,7 +30,7 @@ namespace FinanzVisonaer
         public Form1()
         {
             InitializeComponent();
-
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -35,9 +38,17 @@ namespace FinanzVisonaer
             
             richTextBox1.KeyPress += richTextBox1_KeyPress; 
             richTextBox1.Validating += richTextBox1_Validating;
+          
+            comboBox1.Text = "--Select--";
+            label1.Visible = false; richTextBox1.Visible = false;
+            groupBox1.Visible = false; label12.Visible = false;
+            checkBox1.Visible = false;
+               
+
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
-       
+
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
             label7.Text =  richTextBox1.Text;
@@ -128,7 +139,100 @@ namespace FinanzVisonaer
             }
             else { richTextBox2.Visible = false; }      
         }
+        private void Abfrage1(bool i)
+        {
+            groupBox1.Visible = i;
+            label1.Visible = i; richTextBox1.Visible = i;
+            groupBox1.Visible = i; label12.Visible = i;
+            checkBox1.Visible = i;
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            bool i = false;
+            groupBox5.Visible = false;
+            if (comboBox1.Text == "Ausgaben-Rechner")
+            {
+                Abfrage1(i);
+                groupBox5.Visible = true;
+
+            }
+            else if(comboBox1.Text == "Budget-Rechner") 
+            {
+                i = true;
+                Abfrage1(i);
+                
+            }
+            else if(comboBox1.Text == "--Select--")
+            {
+                Abfrage1(false);
+                
+            }
+            else
+            {
+                Abfrage1(i);
+            }
+            
+        }
+        private void test23()
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            // Hole die Werte aus TextBox1
+            string textValue = textBox1.Text;
+
+            // Trenne die Werte nach Leerzeichen
+            string[] values = textValue.Split(' ');
+
+            
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Excel Files|*.xlsx";
+            saveFileDialog.Title = "Daten in Excel speichern";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                // Speichere die Werte in Excel
+                SaveToExcel(values, saveFileDialog.FileName);
+            }
+        }
+        private void SaveToExcel(string[] values, string filePath)
+        {
+
+            try
+            {
+                // Erstelle eine Excel-Anwendung
+                Excel.Application excelApp = new Excel.Application();
+
+                // Erstelle eine neue Arbeitsmappe
+                Excel.Workbook workbook = excelApp.Workbooks.Add();
+
+                // Erstelle ein Arbeitsblatt
+                Excel.Worksheet worksheet = workbook.Sheets[1];
+
+                // Schreibe die Werte in die Excel-Tabelle
+                for (int i = 0; i < values.Length; i++)
+                {
+                    worksheet.Cells[1, i + 1] = values[i];
+                }
+
+                // Speichere die Arbeitsmappe
+                workbook.SaveAs(filePath);
+
+                // Schließe die Excel-Anwendung
+                excelApp.Quit();
+
+                MessageBox.Show("Daten wurden in Excel gespeichert.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Fehler beim Speichern der Daten in Excel: " + ex.Message);
+            }
+        }
         /// <summary>
+        /// Menü um die  Ausgaben auf zu schreiben art tabelle evtl ?
         /// Excel als speicher Element bei tastdruck 
         /// Graphen speichern möglich wäre ein Chart
         /// ss
