@@ -1,0 +1,10 @@
+C:\Users\noahn\source\repos\FinanzVisonaer\FinanzVisonaer\bin\Debug\FinanzVisonaer.exe.config
+C:\Users\noahn\source\repos\FinanzVisonaer\FinanzVisonaer\bin\Debug\FinanzVisonaer.exe
+C:\Users\noahn\source\repos\FinanzVisonaer\FinanzVisonaer\bin\Debug\FinanzVisonaer.pdb
+C:\Users\noahn\source\repos\FinanzVisonaer\FinanzVisonaer\obj\Debug\FinanzVisonaer.csproj.AssemblyReference.cache
+C:\Users\noahn\source\repos\FinanzVisonaer\FinanzVisonaer\obj\Debug\FinanzVisonaer.Form1.resources
+C:\Users\noahn\source\repos\FinanzVisonaer\FinanzVisonaer\obj\Debug\FinanzVisonaer.Properties.Resources.resources
+C:\Users\noahn\source\repos\FinanzVisonaer\FinanzVisonaer\obj\Debug\FinanzVisonaer.csproj.GenerateResource.cache
+C:\Users\noahn\source\repos\FinanzVisonaer\FinanzVisonaer\obj\Debug\FinanzVisonaer.csproj.CoreCompileInputs.cache
+C:\Users\noahn\source\repos\FinanzVisonaer\FinanzVisonaer\obj\Debug\FinanzVisonaer.exe
+C:\Users\noahn\source\repos\FinanzVisonaer\FinanzVisonaer\obj\Debug\FinanzVisonaer.pdb
