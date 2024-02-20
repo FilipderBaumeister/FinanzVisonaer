@@ -1,3 +1,3 @@
 ## FinanzVisonaer
 
-ZIP ist das fertige Programm
+Wird die tage in eine Datenbank eingebunden. Nötigen installationen werden immoment noch vorgenommen 
